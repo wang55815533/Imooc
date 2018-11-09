@@ -9,11 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 显示 HttpServletRequest Header信息
+ * 
+ * @author itwanha
+ *
+ */
 public class DisplayHeaderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int serverPort = request.getServerPort();
 		response.setContentType("text/html;charset=UTF-8");
 
 		PrintWriter out = response.getWriter();
@@ -26,8 +31,11 @@ public class DisplayHeaderServlet extends HttpServlet {
 
 		Enumeration<String> headerNames = request.getHeaderNames();
 
+		// server Port
 		out.print("<tr><td>" + "serverPort" + "</td>\n");
-		out.println("<td> " + serverPort + "</td></tr>\n");
+		out.println("<td> " + request.getServerPort() + "</td></tr>\n");
+
+		// Header Names Values
 		while (headerNames.hasMoreElements()) {
 			String paramName = (String) headerNames.nextElement();
 			out.print("<tr><td>" + paramName + "</td>\n");
