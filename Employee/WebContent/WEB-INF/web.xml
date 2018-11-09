@@ -7,6 +7,16 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>  
+    <servlet-name>DisplayHeader</servlet-name>  
+    <!-- 所在的包 -->
+    <servlet-class>com.servlet.DisplayHeaderServlet</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>DisplayHeader</servlet-name>  
+    <!-- 访问的网址 -->  
+    <url-pattern>/DisplayHeader</url-pattern>  
+  </servlet-mapping>  
   <servlet>
   	<servlet-name>Code</servlet-name>
   	<servlet-class>com.util.Code</servlet-class>
