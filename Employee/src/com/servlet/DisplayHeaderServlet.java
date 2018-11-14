@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Enumeration;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,6 +21,12 @@ public class DisplayHeaderServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
+
+		// cookies
+		Cookie cookie = new Cookie("name", "=======value======");
+		cookie.setMaxAge(-1);
+		System.out.println(cookie);
+		response.addCookie(cookie);
 
 		PrintWriter out = response.getWriter();
 		String title = "HTTP Header 请求实例 ";
